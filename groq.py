@@ -1,6 +1,8 @@
 import os 
 import json
 import requests
+from dotenv import load_dotenv
+import os
 
 class Assistant:
     def __init__(self,api_key):
@@ -68,6 +70,7 @@ class Assistant:
 
 
 if __name__ == "__main__":
-    api_key=input("type ur api key here")
+    load_dotenv()
+    api_key=os.getenv("GROQ_API_KEY")
     assistant=Assistant(api_key)
     assistant.chat()
